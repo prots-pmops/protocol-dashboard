@@ -51,12 +51,20 @@ h1,h2,h3,.greet,#dashboard h1,#dashboard h2,#dashboard h3,#dashboard summary{tex
 <div class="search">Search a person, client or task…</div>
 <button class="refresh" onclick="location.reload()">↻ Refresh</button>
 </div>
-<h1 class="greet">Good morning, Clarie</h1>
+<h1 class="greet" id="greet">Good morning, Clarie</h1>
 <p class="sub">PROTOCOL team dashboard — meetings, Monday.com tasks, leave and WFH.</p>
 <p id="updated">Loading latest data…</p>
 <div id="dashboard"><p id="status">Loading…</p></div>
 </main>
 </div>
+<script>
+(function () {
+  var hour = Number(new Intl.DateTimeFormat('en-SG', { timeZone: 'Asia/Singapore', hour: 'numeric', hour12: false }).format(new Date()));
+  var part = hour < 12 ? 'morning' : (hour < 18 ? 'afternoon' : 'evening');
+  var el = document.getElementById('greet');
+  if (el) el.textContent = 'Good ' + part + ', Clarie';
+})();
+</script>
 <script src="./app.js"></script>
 </body>
 </html>
