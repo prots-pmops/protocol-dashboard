@@ -16,7 +16,9 @@
 *{box-sizing:border-box}
 body{margin:0;background:#FAF7F0;font-family:'Work Sans',sans-serif;color:#2b2b2b}
 h1,h2,h3{font-family:'Oswald',sans-serif;letter-spacing:.01em}
-.shell{display:flex;min-height:100vh}
+h1,h2,h3,.greet,.sidebar .logo,.sidebar nav a,#dashboard h1,#dashboard h2,#dashboard h3,#dashboard summary{text-transform:uppercase}
+#dashboard h3{letter-spacing:.03em}
+.shell{display:flex;min-height:100vh;max-width:1440px;margin:0 auto}
 .sidebar{width:210px;background:#1e1e1e;color:#fff;padding:22px 16px;flex-shrink:0}
 .sidebar .logo{font-family:'Oswald',sans-serif;font-size:24px;letter-spacing:.06em}
 .sidebar .logo span{color:#768E78}
@@ -24,15 +26,30 @@ h1,h2,h3{font-family:'Oswald',sans-serif;letter-spacing:.01em}
 .sidebar nav a{color:#d6d6d6;text-decoration:none;padding:10px 12px;border-radius:10px;font-size:14px}
 .sidebar nav a.active{background:#768E78;color:#fff}
 .sidebar .foot{margin-top:40px;font-size:12px;color:#999}
-.main{flex:1;padding:20px 22px;min-width:0}
+.main{flex:1;padding:20px 22px;min-width:0;max-width:1200px;margin:0 auto;width:100%}
 .topbar{display:flex;gap:12px;align-items:center}
-.search{flex:1;background:#fff;border:1px solid #E5DDC8;border-radius:999px;padding:10px 16px;color:#888}
-.refresh{background:#768E78;color:#fff;border:0;border-radius:999px;padding:10px 18px;font-weight:700;cursor:pointer;font-family:'Work Sans',sans-serif}
+.search{flex:1;background:#fff;border:1px solid #E5DDC8;border-radius:999px;padding:10px 16px;color:#888;min-width:0}
+.refresh{background:#768E78;color:#fff;border:0;border-radius:999px;padding:10px 18px;font-weight:700;cursor:pointer;font-family:'Work Sans',sans-serif;flex-shrink:0}
 .greet{font-size:32px;margin:16px 0 2px}
 .sub{color:#777;margin:0 0 12px}
 #updated{color:#888;font-size:12px;margin:0 0 8px}
 #status{color:#888;font-size:13px}
-@media(max-width:900px){.sidebar{display:none}}
+#dashboard img,#dashboard svg{max-width:100%;height:auto}
+#dashboard>div{max-width:100%}
+@media(max-width:1280px){.main{max-width:100%}}
+@media(max-width:900px){
+  .sidebar{display:none}
+  .main{padding:16px}
+  .greet{font-size:26px}
+  #dashboard>div>div{flex-wrap:wrap}
+}
+@media(max-width:640px){
+  .main{padding:12px}
+  .greet{font-size:22px}
+  .topbar{flex-wrap:wrap}
+  .search{flex-basis:100%}
+  #dashboard{font-size:14px}
+}
 </style>
 </head>
 <body>
